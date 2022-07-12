@@ -1,0 +1,5 @@
+php-cs-fixer: copyright-without-copyright-notice
+php-cs-fixer: empty-binary-package
+php-cs-fixer: initial-upload-closes-no-bugs
+php-cs-fixer: no-manual-page
+php-cs-fixer: zero-byte-file-in-doc-directory
