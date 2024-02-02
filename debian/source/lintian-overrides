@@ -1,0 +1,3 @@
+php-cs-fixer source: file-without-copyright-information
+php-cs-fixer source: no-debian-changes
+php-cs-fixer source: source-contains-prebuilt-windows-binary
