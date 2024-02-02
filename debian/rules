@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+
+SHELL := /bin/bash
+
+override_dh_auto_install:
+	install -Dpm755 -d debian/tmp/usr/bin
+	install -Dpm755 -d debian/tmp/usr/share/php/vendor
+	cp -rfT vendor debian/tmp/usr/share/php/vendor
+	pushd debian/tmp/usr/bin && \
+		ln -fs /usr/share/php/vendor/php-cs-fixer/php-cs-fixer php-cs-fixer && \
+		popd
+	chmod a+x debian/tmp/usr/share/php/vendor/php-cs-fixer/php-cs-fixer
+	fdupes -qnrps debian/tmp/usr/share/php/vendor
+
+override_dh_fixperms:
+	dh_fixperms
+	chmod a+x debian/php-cs-fixer/usr/share/php/vendor/php-cs-fixer/php-cs-fixer
+
+override_dh_auto_test:
+
+override_dh_auto_clean:
+
+%:
+	dh $@
